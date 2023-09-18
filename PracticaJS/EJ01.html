@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayor de Tres Números</title>
+</head>
+<body>
+    <h1>Encuentra el Mayor de Tres Números</h1>
+    <form>
+        <label for="numero1">Primer número:</label>
+        <input type="number" id="numero1" required>
+        <br>
+        <label for="numero2">Segundo número:</label>
+        <input type="number" id="numero2" required>
+        <br>
+        <label for="numero3">Tercer número:</label>
+        <input type="number" id="numero3" required>
+        <br>
+        <button type="button" onclick="encontrarMayor()">Encontrar Mayor</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function encontrarMayor() {
+            // Obtener los valores ingresados por el usuario
+            var numero1 = parseFloat(document.getElementById("numero1").value);
+            var numero2 = parseFloat(document.getElementById("numero2").value);
+            var numero3 = parseFloat(document.getElementById("numero3").value);
+
+            // Verificar si los números son distintos
+            if (numero1 !== numero2 && numero1 !== numero3 && numero2 !== numero3) {
+                // Encontrar el número mayor usando el operador ternario
+                var mayor = (numero1 > numero2) ? ((numero1 > numero3) ? numero1 : numero3) : ((numero2 > numero3) ? numero2 : numero3);
+
+                // Mostrar el resultado en la página
+                document.getElementById("resultado").innerHTML = "El número mayor es: " + mayor;
+            } else {
+                document.getElementById("resultado").innerHTML = "Los números ingresados no son distintos. Por favor, ingrese tres números diferentes.";
+            }
+        }
+    </script>
+</body>
+</html>
